@@ -1,0 +1,89 @@
+<div class="container">
+  <form class="col">
+    <div style="justify-content: center" class="row mb-3">
+      <h1 id="actionSearchTitle">Actions Search</h1>
+    </div>
+    <div style="justify-content: center" class="row mb-3">
+      <input
+        type="text"
+        class="form-control inputsAttr textInput col-4"
+        placeholder="User Name"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="userName"
+        name="Username"
+      />
+
+      <input
+        type="text"
+        class="form-control inputsAttr textInput col-4"
+        placeholder="Business Entity Name"
+        aria-label="Business Entity"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="businessEntityName"
+        name="businessEntityName"
+      />
+
+      <input
+        type="text"
+        class="form-control inputsAttr textInput col-xl-4"
+        placeholder="Application Name"
+        aria-label="Application"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="applicationName"
+        name="applicationName"
+      />
+    </div>
+    <div style="justify-content: center" class="row mb-3">
+      <div class="input-group inputsAttr selectInput">
+        <select
+          class="form-select"
+          aria-label="Example select with button addon"
+          (change)="ChangeActionType($event)"
+        >
+          <option value="0">Action Type</option>
+          <option
+            *ngFor="let actionType of actionTypes"
+            [value]="actionType.action_type_id"
+          >
+            {{ actionType.name }}
+          </option>
+        </select>
+      </div>
+      <div class="input-group inputsAttr selectInput">
+        <select
+          class="form-select"
+          aria-label="Example select with button addon"
+          (change)="ChangeParameterType($event)"
+        >
+          <option selected value="0">Parameter</option>
+          <option
+            *ngFor="let parameterType of parameterTypes"
+            [value]="parameterType.parameter_type_id"
+          >
+            {{ parameterType.name }}
+          </option>
+        </select>
+      </div>
+      <input
+        type="text"
+        class="form-control inputsAttr textInput"
+        placeholder="Parameter Value"
+        aria-label="Parameter Value"
+        aria-describedby="basic-addon1"
+        [(ngModel)]="parameterValue"
+        name="parameterValue"
+      />
+    </div>
+    <div class="row" style="justify-content: center">
+      <button
+        (click)="renewActionsResult()"
+        type="button"
+        style="width: 20%"
+        class="btn btn-primary"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>

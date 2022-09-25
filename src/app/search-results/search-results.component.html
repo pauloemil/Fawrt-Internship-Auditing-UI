@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="d-flex" style="align-content: center; justify-content: center">
+    <pagination-controls
+      *ngIf="total_count != 0"
+      (pageChange)="onPagenationChange($event)"
+      previousLabel="Prv"
+      nextLabel="Nxt"
+    ></pagination-controls>
+  </div>
+  <div class="container" *ngIf="actions.length">
+    <div
+      *ngFor="
+        let action of actions
+          | paginate
+            : {
+                itemsPerPage: page_size,
+                currentPage: page_number,
+                totalItems: total_count
+              }
+      "
+    >
+      <ap-action-card [action]="action"></ap-action-card>
+    </div>
+  </div>
+</div>

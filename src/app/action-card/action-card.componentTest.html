@@ -1,0 +1,76 @@
+<div class="row mb-3">
+  <div
+    class="col-2 col"
+    style="display: flex; justify-content: center; flex-direction: column"
+  >
+    <p style="align-self: center; margin-bottom: 0; font-weight: 600">
+      {{ dateNow }}
+    </p>
+    <div id="circular" [style]="color">
+      <p class="mt-3" style="align-self: center">
+        <i [class]="icon" style="font-size: 22px; color: white"></i>
+      </p>
+    </div>
+  </div>
+  <div
+    class="col-9 card"
+    style="border-radius: 10px; background-color: rgb(255, 255, 255)"
+  >
+    <div class="row" style="height: 100%">
+      <div class="row col-4">
+        <div
+          class="col-5"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* background-color: green; */
+          "
+        >
+          <img [src]="action.user.user_image" id="profileImage" />
+        </div>
+        <div
+          class="col-7"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* background-color: yellow; */
+          "
+        >
+          <p
+            style="
+              font-size: 20px;
+              font-weight: 600;
+              margin-bottom: 0px;
+              /* text-align: center; */
+            "
+          >
+            {{ action.user.user_name }}
+          </p>
+          <p
+            style="
+              color: #656970;
+              font-size: 17px;
+              font-weight: 600;
+              /* text-align: center; */
+            "
+          >
+            {{ action.user.user_title }}
+          </p>
+        </div>
+      </div>
+      <div
+        class="col-8"
+        style="display: flex; flex-direction: column; justify-content: center"
+      >
+        <blockquote class="blockquote mb-0">
+          <p>{{ action.description_en }}</p>
+          <!-- <footer class="blockquote-footer">
+            {{ dateNow.getHours() }} : {{ dateNow.getMinutes() }}
+          </footer> -->
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

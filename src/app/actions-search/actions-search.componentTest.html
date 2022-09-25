@@ -1,0 +1,134 @@
+<div class="container">
+  <form class="col">
+    <div style="justify-content: center" class="row mb-3">
+      <h1 id="actionSearchTitle">Actions Search</h1>
+    </div>
+    <div class="row g-2 mb-3">
+      <div class="col-md">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="User Name"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="userName"
+            name="floatingInputGridName"
+          />
+          <label for="floatingInputGridName">User Name</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Business Entity Name"
+            aria-label="Business Entity"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="businessEntityName"
+            name="businessEntityName"
+          />
+          <label for="businessEntityName">BE Name</label>
+        </div>
+      </div>
+      <!-- <div class="col-md">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Application Name"
+            aria-label="Application"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="applicationName"
+            name="applicationName"
+          />
+          <label for="applicationName">Application Name</label>
+        </div>
+      </div> -->
+      <div class="col-md">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Example select with button addon"
+            name="application"
+            (change)="ChangeApplication($event)"
+          >
+            <option value="">--SELECT--</option>
+            <option
+              *ngFor="let application of applications"
+              [value]="application.application_name"
+            >
+              {{ application.application_name }}
+            </option>
+          </select>
+          <label for="application">Application</label>
+        </div>
+      </div>
+    </div>
+    <div class="row g-2 mb-3">
+      <div class="col-md">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Example select with button addon"
+            name="ActionType"
+            (change)="ChangeActionType($event)"
+          >
+            <option value="0">--SELECT--</option>
+            <option
+              *ngFor="let actionType of actionTypes"
+              [value]="actionType.action_type_id"
+            >
+              {{ actionType.name }}
+            </option>
+          </select>
+          <label for="ActionType">Action Type</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Example select with button addon"
+            (change)="ChangeParameterType($event)"
+            name="ParameterType"
+          >
+            <option selected value="0">--SELECT--</option>
+            <option
+              *ngFor="let parameterType of parameterTypes"
+              [value]="parameterType.parameter_type_id"
+            >
+              {{ parameterType.name }}
+            </option>
+          </select>
+          <label for="ParameterType">Parameter Type</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Parameter Value"
+            aria-label="Parameter Value"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="parameterValue"
+            name="parameterValue"
+          />
+          <label for="parameterValue">Parameter Value</label>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="justify-content: center">
+      <button
+        (click)="renewActionsResult()"
+        type="button"
+        style="width: 20%"
+        class="btn btn-primary"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
